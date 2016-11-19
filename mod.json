@@ -1,12 +1,10 @@
 {
 	"name": "Legendary Refresh light",
 	"description": "The island may gradually refresh any legendary item in your inventory at no cost.",
-	"version": "1.0.0",
-	"author": "black-silence",
+	"version": "1.0.1",
+	"author": "black silence",
 	"unloadable": true,
-	"files": [
-		"legendaryrefreshlight.js"
-	],
+	"file": "legendaryrefreshlight.js",
 	"hooks": [
 		"OnTurnComplete"
 	],
