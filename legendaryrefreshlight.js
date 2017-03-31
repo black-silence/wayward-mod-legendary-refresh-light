@@ -1,19 +1,13 @@
-define(["require", "exports"], function (require, exports) {
+define(["require", "exports", "Enums", "mod/Mod"], function (require, exports, Enums_1, Mod_1) {
     "use strict";
-    class Mod extends Mods.Mod {
+    class LegendaryRefreshLight extends Mod_1.default {
         onInitialize(saveDataGlobal) {
-        }
-        onLoad(saveData) {
-        }
-        onUnload() {
-        }
-        onSave() {
         }
         onTurnComplete() {
             let chanceToRefresh = this.getRefreshChance();
-            let items = Item.getItemsInContainer(player.inventory, true);
+            let items = itemManager.getItemsInContainer(localPlayer.inventory, true);
             for (let i = items.length - 1; i >= 0; i--) {
-                if (items[i].quality != ItemQuality.Legendary) {
+                if (items[i].quality != Enums_1.ItemQuality.Legendary) {
                     continue;
                 }
                 if (items[i].minDur < items[i].maxDur && Math.random() <= chanceToRefresh) {
@@ -25,7 +19,7 @@ define(["require", "exports"], function (require, exports) {
             }
         }
         getRefreshChance() {
-            let malignity = player.getMalignity();
+            let malignity = localPlayer.getReputation();
             if (malignity > 50000) {
                 return 0;
             }
@@ -50,5 +44,5 @@ define(["require", "exports"], function (require, exports) {
         }
     }
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.default = Mod;
+    exports.default = LegendaryRefreshLight;
 });

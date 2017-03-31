@@ -1,17 +1,9 @@
-/// <reference path="mod-reference/modreference.d.ts"/>
+import { ItemQuality } from "Enums";
+import Mod from "mod/Mod";
 
-export default class Mod extends Mods.Mod {
+export default class LegendaryRefreshLight extends Mod {
 
     public onInitialize(saveDataGlobal: any): any {
-    }
-
-    public onLoad(saveData: any): void {
-    }
-
-    public onUnload(): void {
-    }
-
-    public onSave(): any {
     }
 
     /**
@@ -21,7 +13,7 @@ export default class Mod extends Mods.Mod {
 
         let chanceToRefresh = this.getRefreshChance();
 
-        let items = Item.getItemsInContainer(player.inventory, true);
+        let items = itemManager.getItemsInContainer(localPlayer.inventory, true);
         for (let i = items.length - 1; i >= 0; i--) {
 
             if (items[i].quality != ItemQuality.Legendary) {
@@ -45,7 +37,7 @@ export default class Mod extends Mods.Mod {
      */
     private getRefreshChance(): number {
 
-        let malignity = player.getMalignity();
+        let malignity = localPlayer.getReputation();
 
         if (malignity > 50000) {
             return 0; // The island hates you!
