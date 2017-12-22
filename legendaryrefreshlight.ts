@@ -9,7 +9,7 @@ export default class LegendaryRefreshLight extends Mod {
     /**
      * Called when a turn is completing
      */
-    public onTurnComplete(): void {
+    public onGameTickEnd(): void {
 
         let chanceToRefresh = this.getRefreshChance();
 

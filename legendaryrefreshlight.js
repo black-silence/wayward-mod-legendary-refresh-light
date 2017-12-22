@@ -3,7 +3,7 @@ define(["require", "exports", "Enums", "mod/Mod"], function (require, exports, E
     class LegendaryRefreshLight extends Mod_1.default {
         onInitialize(saveDataGlobal) {
         }
-        onTurnComplete() {
+        onGameTickEnd() {
             let chanceToRefresh = this.getRefreshChance();
             let items = itemManager.getItemsInContainer(localPlayer.inventory, true);
             for (let i = items.length - 1; i >= 0; i--) {
