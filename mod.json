@@ -7,7 +7,7 @@
 	"multiplayerCompatible": true,
 	"file": "legendaryrefreshlight.js",
 	"compatibleMinorVersions": [
-		6
+		6, 7
 	],
 	"publishedFileId": "776963723"
 }
